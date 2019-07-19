@@ -1,3 +1,21 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<header><h1> live server </h1></header>
+<body>
+this is html hello world
+
+
+
+    
+    <script src="app.js"></script>
+</body>
+</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,26 +27,94 @@
     <!--<link rel="stylesheet" href="assets/css/reset.css">-->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+
+                         <!-- Firebase References -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+                                <!--JQUERY-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src= "assets/javascript/RPS.js"></script>
+                            <!--javascript-->
+<script src= "assets/javascript/rps.js"></script>
+<script src = "server.js"></script>
     
 
-    <title>Document</title>
+                             <title>RPS</title>                         
 </head>
-<header><h1>Rock and Paper and Scissors Game</h1></header>
+
+
+        <header><h1>Rock and Paper and Scissors Game</h1></header>
 <body>
+    <div class = "rps-wrapper">
+        <ul id="events">
+            <li>Welcome to the game</li>
+                </ul>
+
+
+<div class="score-board">
+    <div  id ="user-label" class="badge">user</div>
+    <div id ="computer-label" class ="badge">computer</div>
+    <span id="user-score">0 :</span>
+    <span id="comp-score">0</span>
+</div>
+
+
+<div class="results">
+    <p>Paper covers rock. you win</p>
+</div>
+<div class = "row">
+    <div class ="four">  
+<div class="choises">
+    <div class="choise">
+       <img src="assets/images/rocky.jpg" alt="rock">
+    </div>
+</div>
+</div>
+<div class="four">     
+<div class="choises">
+    <div class="choise">
+       <img src="assets/images/paper.jpg" alt="rock">
+    </div>
+</div>
+</div>
+<div class ="four">      
+<div class="choises">
+    <div class="choise">
+       <img src="assets/images/scissors.jpg" alt="rock">
+    </div>
+</div>
+</div>
+</div>
+
+<p id="action-message">Make your move punk</p>
+
+
+
+
+
+
+<div class = "row">   
+<div class = "button-wrapper"> 
+
     
-
-
-  
-
-
-
-
-
-
-
+<div class = "four">   
+    <button id = "Rock" onclick="rock1()">Rock</button>
+</div>
+<div class = "four">  
+    <button id = "Paper" onclick="paper1()">Paper</button>
+    </div>
+    <div class = "four">  
+    <button id = "Scissors" onclick="scissors1()">Scissors</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class ="row">  
+    <input id="chat">
+    <button id = "say">Say</button>
+    </div>
+        </div>
+            </div>
+        </div>
 
 
 </body>
