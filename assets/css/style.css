@@ -110,6 +110,39 @@ img[src="assets/images/rocky.jpg"] {
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 34px;
+    margin-left: 2%;
     
+
+}
+button{
+    height: 350px;
+    width: 350px;
+    border: 4px solid white;
+    border-radius: 50%;
+    background-color: coral;
+    margin-left: 13%;
+
+}
+#say{
+   
+    border: none;
+    border-radius: 20%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 45px;
+    width:75px;
+    background-color: coral;
+    margin-left: -.1%;
+}
+#chat{
+    margin-left: 10%;
+}
+#events{
+    text-align: center;
+    color: white;
+    font-size: 32px;
 }
