@@ -25,7 +25,9 @@ const result_div = document.querySelector(".result");
 const rock_button = document.getElementById("Rock");
 const paper_button = document.getElementById("Paper");
 const scissors_button = document.getElementById("Scissors");
-var computerChoice = getComputerChoice();
+var turnCount = 0;
+// var computerChoice = getComputerChoice();
+
 
 var ref = database.ref('scores')
   var data = {
@@ -37,22 +39,31 @@ var ref = database.ref('scores')
   //ref.push(data);
 
 
+//simple function to have an anrray looped through with each button click randomly
+// function getComputerChoice(){
 
-function getComputerChoice(){
-
-    const choices = ['Rock', 'Paper', 'Scissors'];
-   const randomNumber = Math.floor(Math.random() * 3);
-   return choices [randomNumber];
-};
+//     const choices = ['Rock', 'Paper', 'Scissors'];
+//    const randomNumber = Math.floor(Math.random() * 3);
+//    return choices [randomNumber];
+// };
 //console.log(getComputerChoice());
+//end of simple function
 
 
 
 
 function game (userChoise){
-     computerChoice = getComputerChoice();
-    console.log(  userChoise);
-    console.log(computerChoice);
+
+    turnCount++
+    
+    //  computerChoice = getComputerChoice();
+
+     console.log(userChoise);
+     console.log(turnCount);
+    //  console.log(computerChoice);
+
+    // console.log("Player 2 wins (currently computer)")
+    // console.log("Players Tie good job you both suck");
 
 }
 
@@ -62,19 +73,22 @@ function game (userChoise){
       //console.log("hey you click rock")
       
       ref.push(data.rock);//this sends to fire base
-      ref.push(computerChoice);
+      ref.push(turnCount);
+      //ref.push(computerChoice);
   }
   function paper1(){
       game("Paper");
       //console.log("this be paper, dolla dolla bills y'all")
       ref.push(data.paper);//this sends to firebase
-      ref.push(computerChoice);
+      ref.push(turnCount);
+     // ref.push(computerChoice);
   }
   function scissors1(){
       game("Scissors");
       //console.log("scissors are dangerous dumb ass don't run with them")
       ref.push(data.scissors);//this sends to firebase
-      ref.push(computerChoice);
+      ref.push(turnCount);
+     // ref.push(computerChoice);
   }
 //}
 //main();
