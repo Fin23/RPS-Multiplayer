@@ -15,7 +15,8 @@ var firebaseConfig = {
 
   //end of fire base configuration and initialize
 
-
+var chat = document.querySelector("#searchTxt");
+var chatSubmit = document.getElementById("say");
 const userScore = 0;
 const computerScore =0;
 const userScore_span = document.getElementById("user-score");
@@ -29,10 +30,14 @@ var turnCount = 0;
 var turnCountRock = 0;
 var turnCountPaper = 0;
 var turnCountScissors = 0;
+
+var turnCountRock2 = 0;
+var turnCountPaper2 = 0;
+var turnCountScissors2 = 0;
 // var computerChoice = getComputerChoice();
 
-
-var ref = database.ref('scores');
+var ref3 = database.ref('player2')
+var ref = database.ref('player1');
 var ref2 = database.ref('turnCount');
   var data = {
       rock: "Rock",
@@ -42,6 +47,13 @@ var ref2 = database.ref('turnCount');
   console.log(data);
   //ref.push(data);
 
+ function chat1(){
+  
+  var firebaseRef = firebase.database().ref();
+   firebaseRef.child("Text").set(chat);
+ }
+
+
   function game (userChoise){
 
     turnCount++
@@ -49,7 +61,7 @@ var ref2 = database.ref('turnCount');
     //  computerChoice = getComputerChoice();
 
      console.log(userChoise);
-     console.log(turnCount);
+     console.log("turn: " + turnCount);
     
      
 
@@ -78,32 +90,48 @@ var ref2 = database.ref('turnCount');
 //function main(){
   function rock1(){
       game("Rock");
-      //console.log("hey you click rock")
-      turnCountRock++
+  
+      
+      if (turnCount==2 || turnCount==4 || turnCount ==6 || turnCount == 8 || turnCount == 10){
+        turnCountRock2++
+        ref3.child("Rock").set(turnCountRock2)
+        console.log(ref3.key);
+      }else{
+        turnCountRock++
       ref.child("Rock").set(turnCountRock)
-      //ref.push(data.rock);//this sends to fire base
+    }
       ref2.child("turn count").set(turnCount)
-      //ref2.push(turnCount);
-     
-      //ref.push(computerChoice);
-  }
+      
+  };
   
   function paper1(){
       game("Paper");
       //console.log("this be paper, dolla dolla bills y'all")
-      turnCountPaper++
+     
+      if (turnCount==2 || turnCount==4 || turnCount ==6 || turnCount == 8 || turnCount == 10){
+       turnCountPaper2++
+        ref3.child("Paper").set(turnCountPaper2)
+        console.log(ref3.key);
+      }else{
+        turnCountPaper++
       ref.child("Paper").set(turnCountPaper)
-      //ref.push(data.paper);//this sends to firebase
+      }
+     
       ref2.child("turn count").set(turnCount)
-      //ref2.push(turnCount);
     
-     // ref.push(computerChoice);
   }
   function scissors1(){
       game("Scissors");
       //console.log("scissors are dangerous dumb ass don't run with them")
-      turnCountScissors++
+      
+      if (turnCount==2 || turnCount==4 || turnCount ==6 || turnCount == 8 || turnCount == 10){
+        turnCountScissors2++
+        ref3.child("Scissors").set(turnCountScissors2)
+        console.log(ref3.key);
+      }else{
+        turnCountScissors++
       ref.child("Scissors").set(turnCountScissors)
+      }
       //ref.push(data.scissors);//this sends to firebase
       ref2.child("turn count").set(turnCount)
       //ref2.push(turnCount);
