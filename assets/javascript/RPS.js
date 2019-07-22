@@ -29,7 +29,8 @@ var turnCount = 0;
 // var computerChoice = getComputerChoice();
 
 
-var ref = database.ref('scores')
+var ref = database.ref('scores');
+var ref2 = database.ref('turnCount');
   var data = {
       rock: "Rock",
       paper: "Paper",
@@ -73,21 +74,21 @@ function game (userChoise){
       //console.log("hey you click rock")
       
       ref.push(data.rock);//this sends to fire base
-      ref.push(turnCount);
+      ref2.push(turnCount);
       //ref.push(computerChoice);
   }
   function paper1(){
       game("Paper");
       //console.log("this be paper, dolla dolla bills y'all")
       ref.push(data.paper);//this sends to firebase
-      ref.push(turnCount);
+      ref2.push(turnCount);
      // ref.push(computerChoice);
   }
   function scissors1(){
       game("Scissors");
       //console.log("scissors are dangerous dumb ass don't run with them")
       ref.push(data.scissors);//this sends to firebase
-      ref.push(turnCount);
+      ref2.push(turnCount);
      // ref.push(computerChoice);
   }
 //}
