@@ -26,6 +26,9 @@ const rock_button = document.getElementById("Rock");
 const paper_button = document.getElementById("Paper");
 const scissors_button = document.getElementById("Scissors");
 var turnCount = 0;
+var turnCountRock = 0;
+var turnCountPaper = 0;
+var turnCountScissors = 0;
 // var computerChoice = getComputerChoice();
 
 
@@ -38,6 +41,24 @@ var ref2 = database.ref('turnCount');
   }
   console.log(data);
   //ref.push(data);
+
+  function game (userChoise){
+
+    turnCount++
+    
+    //  computerChoice = getComputerChoice();
+
+     console.log(userChoise);
+     console.log(turnCount);
+    
+     
+
+    //  console.log(computerChoice);
+
+    // console.log("Player 2 wins (currently computer)")
+    // console.log("Players Tie good job you both suck");
+
+}
 
 
 //simple function to have an anrray looped through with each button click randomly
@@ -53,43 +74,46 @@ var ref2 = database.ref('turnCount');
 
 
 
-function game (userChoise){
-
-    turnCount++
-    
-    //  computerChoice = getComputerChoice();
-
-     console.log(userChoise);
-     console.log(turnCount);
-    //  console.log(computerChoice);
-
-    // console.log("Player 2 wins (currently computer)")
-    // console.log("Players Tie good job you both suck");
-
-}
 
 //function main(){
   function rock1(){
       game("Rock");
       //console.log("hey you click rock")
-      
-      ref.push(data.rock);//this sends to fire base
-      ref2.push(turnCount);
+      turnCountRock++
+      ref.child("Rock").set(turnCountRock)
+      //ref.push(data.rock);//this sends to fire base
+      ref2.child("turn count").set(turnCount)
+      //ref2.push(turnCount);
+     
       //ref.push(computerChoice);
   }
+  
   function paper1(){
       game("Paper");
       //console.log("this be paper, dolla dolla bills y'all")
-      ref.push(data.paper);//this sends to firebase
-      ref2.push(turnCount);
+      turnCountPaper++
+      ref.child("Paper").set(turnCountPaper)
+      //ref.push(data.paper);//this sends to firebase
+      ref2.child("turn count").set(turnCount)
+      //ref2.push(turnCount);
+    
      // ref.push(computerChoice);
   }
   function scissors1(){
       game("Scissors");
       //console.log("scissors are dangerous dumb ass don't run with them")
-      ref.push(data.scissors);//this sends to firebase
-      ref2.push(turnCount);
+      turnCountScissors++
+      ref.child("Scissors").set(turnCountScissors)
+      //ref.push(data.scissors);//this sends to firebase
+      ref2.child("turn count").set(turnCount)
+      //ref2.push(turnCount);
+
+    
      // ref.push(computerChoice);
+
   }
+ 
+
+
 //}
 //main();
