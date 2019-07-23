@@ -15,7 +15,7 @@ var firebaseConfig = {
 
   //end of fire base configuration and initialize
 
-var chat = document.querySelector("#searchTxt");
+
 var chatSubmit = document.getElementById("say");
 const userScore = 0;
 const computerScore =0;
@@ -36,7 +36,8 @@ var turnCountPaper2 = 0;
 var turnCountScissors2 = 0;
 // var computerChoice = getComputerChoice();
 
-var ref3 = database.ref('player2')
+var ref4 = database.ref('chat');
+var ref3 = database.ref('player2');
 var ref = database.ref('player1');
 var ref2 = database.ref('turnCount');
   var data = {
@@ -47,10 +48,20 @@ var ref2 = database.ref('turnCount');
   console.log(data);
   //ref.push(data);
 
+var firebaseHeadingRef = firebase.database().ref().child("turnCount")
+
+firebaseHeadingRef.on('value', function(datasnapshot){
+  var fireHeading = document.getElementById("fireHeading")
+  fireHeading.innerText = datasnapshot.val();
+});
+
+
  function chat1(){
+  var chat= document.getElementById('chat');
+  ref4.push("chat").set(chat.value);
+
+  console.log(chat.value)
   
-  var firebaseRef = firebase.database().ref();
-   firebaseRef.child("Text").set(chat);
  }
 
 
@@ -100,7 +111,7 @@ var ref2 = database.ref('turnCount');
         turnCountRock++
       ref.child("Rock").set(turnCountRock)
     }
-      ref2.child("turn count").set(turnCount)
+      ref2.set(turnCount)
       
   };
   
@@ -117,7 +128,7 @@ var ref2 = database.ref('turnCount');
       ref.child("Paper").set(turnCountPaper)
       }
      
-      ref2.child("turn count").set(turnCount)
+      ref2.set(turnCount)
     
   }
   function scissors1(){
@@ -133,7 +144,7 @@ var ref2 = database.ref('turnCount');
       ref.child("Scissors").set(turnCountScissors)
       }
       //ref.push(data.scissors);//this sends to firebase
-      ref2.child("turn count").set(turnCount)
+      ref2.set(turnCount)
       //ref2.push(turnCount);
 
     
