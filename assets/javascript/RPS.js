@@ -34,6 +34,9 @@ var turnCountScissors = 0;
 var turnCountRock2 = 0;
 var turnCountPaper2 = 0;
 var turnCountScissors2 = 0;
+
+playerOne = 0;
+playerTwo = 0;
 // var computerChoice = getComputerChoice();
 
 var ref4 = database.ref('chat');
@@ -58,7 +61,7 @@ firebaseHeadingRef.on('value', function(datasnapshot){
 
  function chat1(){
   var chat= document.getElementById('chat');
-  ref4.push("chat").set(chat.value);
+  ref4.push('chat').set(chat.value);
 
   console.log(chat.value)
   
@@ -105,6 +108,7 @@ firebaseHeadingRef.on('value', function(datasnapshot){
       
       if (turnCount==2 || turnCount==4 || turnCount ==6 || turnCount == 8 || turnCount == 10){
         turnCountRock2++
+        
         ref3.child("Rock").set(turnCountRock2)
         console.log(ref3.key);
       }else{
